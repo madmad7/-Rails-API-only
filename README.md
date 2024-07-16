@@ -1,24 +1,39 @@
-# README
+# -Rails-API-only
+## Setup and Run
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Clone the repository:
+   ```sh
+   git clone <repository_url>
+   cd dog_api
+   ```
 
-Things you may want to cover:
+2. Build and run the Docker containers:
+   ```sh
+   docker-compose build
+   docker-compose up
+   ```
 
-* Ruby version
+3. Create the database:
+   ```sh
+   docker-compose run web rake db:create
+   ```
 
-* System dependencies
+4. Fetch and store dog breeds from the Dog API:
+   ```sh
+   docker-compose run web rake fetch:dog_breeds
+   ```
 
-* Configuration
+5. Access the breeds data at:
+   ```
+   http://localhost:3000/api/v1/dogs/breeds
+   ```
 
-* Database creation
+## API Endpoint
 
-* Database initialization
+- `GET /api/v1/dogs/breeds`: Returns a list of all dog breeds.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+Notes:
 
-* Deployment instructions
-
-* ...
+    Ensure Docker is installed on your machine before running the above commands.
+    The default port is set to 3000; make sure this port is available or adjust the docker-compose.yml accordingly.
