@@ -3,8 +3,8 @@
 
 1. Clone the repository:
    ```sh
-   git clone <repository_url>
-   cd dog_api
+   git clone https://github.com/madmad7/-Rails-API-only
+   cd <repository_folder>
    ```
 
 2. Build and run the Docker containers:
@@ -17,13 +17,18 @@
    ```sh
    docker-compose run web rake db:create
    ```
+   
+4. Run database migrations:
+   ```sh
+   docker-compose run web rake db:migrate
+   ```
 
-4. Fetch and store dog breeds from the Dog API:
+5. Fetch and store dog breeds from the Dog API:
    ```sh
    docker-compose run web rake fetch:dog_breeds
    ```
 
-5. Access the breeds data at:
+6. Access the breeds data at:
    ```
    http://localhost:3000/api/v1/dogs/breeds
    ```
@@ -35,5 +40,5 @@
 
 Notes:
 
-    Ensure Docker is installed on your machine before running the above commands.
-    The default port is set to 3000; make sure this port is available or adjust the docker-compose.yml accordingly.
+- Ensure Docker is installed on your machine before running the above commands.
+- The default port is set to 3000; make sure this port is available or adjust the docker-compose.yml accordingly.
